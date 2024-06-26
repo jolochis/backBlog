@@ -7,6 +7,7 @@ import {
   Param,
   Post,
   Put,
+  Query,
 } from '@nestjs/common';
 import { EntradaService } from './entrada.service';
 import { entrada } from '@prisma/client';
@@ -59,6 +60,27 @@ export class EntradaController {
     try {
       const updatePost = this.entradaService.updatePost(Number(id), data);
       return updatePost;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+  @Get('search')
+  async search(@Query('q') searchTerm: string) {
+    try {
+      return this.entradaService.searchPost(searchTerm);
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+}
+@Controller('busqueda')
+export class busquedaController {
+  constructor(private entradaService: EntradaService) {}
+
+  @Get('')
+  async search(@Query('q') searchTerm: string) {
+    try {
+      return this.entradaService.searchPost(searchTerm);
     } catch (error) {
       throw new Error(error);
     }
