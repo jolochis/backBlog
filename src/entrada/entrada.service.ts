@@ -26,4 +26,19 @@ export class EntradaService {
       where: { id },
     });
   }
+  async searchPost(searchTerm: string) {
+    try {
+      return this.prisma.entrada.findMany({
+        where: {
+          OR: [
+            { titulo: { contains: searchTerm, mode: 'insensitive' } },
+            { autor: { contains: searchTerm, mode: 'insensitive' } },
+            { contenido: { contains: searchTerm, mode: 'insensitive' } },
+          ],
+        },
+      });
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
 }
