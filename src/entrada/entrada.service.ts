@@ -28,7 +28,7 @@ export class EntradaService {
   }
   async searchPost(searchTerm: string) {
     try {
-      return this.prisma.entrada.findMany({
+      const postFound = this.prisma.entrada.findMany({
         where: {
           OR: [
             { titulo: { contains: searchTerm, mode: 'insensitive' } },
@@ -37,6 +37,7 @@ export class EntradaService {
           ],
         },
       });
+      return postFound;
     } catch (error) {
       throw new Error(error);
     }

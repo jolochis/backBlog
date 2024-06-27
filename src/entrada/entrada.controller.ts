@@ -48,7 +48,6 @@ export class EntradaController {
   async deletePost(@Param('id') id: string) {
     try {
       const deletedPost = await this.entradaService.deletePost(Number(id));
-      console.log('++++++++', deletedPost);
       if (!deletedPost) throw new NotFoundException('Entrada no encontrada');
       return deletedPost;
     } catch (error) {
@@ -64,19 +63,10 @@ export class EntradaController {
       throw new Error(error);
     }
   }
-  @Get('search')
-  async search(@Query('q') searchTerm: string) {
-    try {
-      return this.entradaService.searchPost(searchTerm);
-    } catch (error) {
-      throw new Error(error);
-    }
-  }
 }
 @Controller('busqueda')
 export class busquedaController {
   constructor(private entradaService: EntradaService) {}
-
   @Get('')
   async search(@Query('q') searchTerm: string) {
     try {
