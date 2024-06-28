@@ -31,6 +31,9 @@ $ npx prisma generate
 ```
 
 
+```bash
+$ npx prisma migrate dev
+```
 
 
 ## Running the app
