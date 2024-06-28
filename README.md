@@ -51,3 +51,7 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+## Repositorio de diagramas
+
+https://drive.google.com/file/d/1j6OBWZ-2wY8nlGlvheXjH9J6rumLQD69/view?usp=sharing
