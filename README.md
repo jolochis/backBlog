@@ -16,15 +16,22 @@ $ npm install
 
 Iniciar prisma en caso de querer probar la conexion en su local
 
-```bash
-$ npx prisma generate
-```
+Crear archivo .env
 
-configurar las credenciales del .env
+Configurar las credenciales del .env
 
 ```
 DATABASE_URL="postgresql://user:password@localhost:5432/blog?schema=public"
 ```
+
+sustitur usuario y contraseña de su base de datos.
+
+```bash
+$ npx prisma generate
+```
+
+
+
 
 ## Running the app
 
